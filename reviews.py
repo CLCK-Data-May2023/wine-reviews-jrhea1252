@@ -5,8 +5,8 @@ import pandas as pd
 df = pd.read_csv('data/winemag-data-130k-v2.csv.zip')
 
 # This line will create a summary 
-summary = df.groupby('country').agg({'country': 'count', 'points': 'mean'}).rename(columns={'country': 'number_of_reviews', 'points': 'average_points'})
-summary['average_points'] = summary['average_points'].round(1)
+summary = df.groupby('country').agg({'country': 'count', 'points': 'mean'}).rename(columns={'country': 'count', 'points': 'points'})
+summary['points'] = summary['points'].round(1)
 
 # This line creates a csv file
 summary.to_csv('data/reviews-per-country.csv')
